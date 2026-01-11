@@ -154,6 +154,36 @@ Aplicação Prática: Uso de IOCs para bloqueio preventivo em firewalls (IPs), g
 
 # 3- Incident Response
 
+# Preparação (Preparation)
+Foco: Estabelecer a capacidade de resposta antes que ocorra um ataque.
+Elementos-chave: Criação de equipes especializadas (CSIRT), documentação de políticas/procedimentos e implementação de visibilidade tecnológica (logs e inventário de ativos).
+Ferramentas: Uso de SIEM para centralizar logs e criação de um "Jump Bag" com ferramentas forenses.
+
+
+# Identificação e Escopo (Identification & Scoping)
+
+Foco: Detectar o incidente e entender sua extensão.
+Ações: Analisar alertas de segurança e correlacionar dados. No caso SSF, identificou-se um phishing contra funcionários devido à falta de segurança no e-mail (SPF/DKIM/DMARC).
+Recurso: Uso do Spreadsheet of Doom (SoD) para registrar Indicadores de Comprometimento (IoCs) como IPs maliciosos e hashes de arquivos.
+
+
+# Contenção e Inteligência de Ameaças (Containment & Threat Intel)
+ 
+Estratégias de Contenção:
+Isolamento Total: Eficaz, mas agressivo; pode alertar o invasor.
+Isolamento Controlado: Monitoramento próximo para ganhar inteligência sem que o invasor perceba.
+Inteligência (TTPs): Análise de Táticas, Técnicas e Procedimentos para prever ações futuras. Identificou-se o arquivo dropper.exe e a infraestrutura do grupo "tal0nix".
+
+
+# Erradicação, Remediação e Recuperação
+Erradicação: Remoção completa da ameaça. Pode ser feita via limpeza direcionada ou reconstrução total do sistema (que causa downtime).
+Remediação: Correção das causas raiz (ex: aplicar patches, segmentação de rede e revisão de acessos privilegiados).
+Recuperação: Retorno seguro das operações, validado por testes de penetração e restauração de backups.
+
+# Lições Aprendidas (Lessons Learned)
+Objetivo: Revisar o incidente para melhorar defesas futuras.
+Resultados: Criação de relatórios técnicos e executivos. No caso SSF, os IoCs foram convertidos em regras de detecção Sigma (formato agnóstico) para monitoramento contínuo.
+
 # 4- Threat Hunting
 
 # 5- Threat Emulation
