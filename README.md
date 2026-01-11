@@ -85,71 +85,36 @@ Ataques de Força Bruta: Múltiplas falhas de login em um curto período vindas 
 
 # **Configuração de Laboratório SOC (Setting up a SOC Lab)**
 
-* 
 **Instalação**: Cobre a instalação do Splunk Enterprise e de *Universal Forwarders* em ambientes Linux (Ubuntu) e Windows.
-
-
-* 
 **Ingestão de Dados**: Explica como configurar o Splunk para receber logs de diferentes fontes, como o `syslog` do Linux, logs de eventos do Windows e logs de servidores web (IIS).
-
-
-* 
 **CLI**: Apresenta comandos essenciais de linha de comando (`splunk start`, `stop`, `restart`, `status`) para gerir a instância.
 
 
 
-### 2. **Exploração de SPL (Exploring SPL)**
+# **Exploração de SPL (Exploring SPL)**
 
-* 
 **Linguagem de Busca**: Introduz o *Search Processing Language* (SPL), utilizado para filtrar e analisar grandes volumes de dados.
-
-
-* 
 **Operadores e Comandos**: Detalha o uso de operadores booleanos (`AND`, `OR`, `NOT`), wildcards (`*`) e comandos de filtragem como `fields`, `dedup` e `rename`.
-
-
-* 
 **Transformação**: Ensina a estruturar resultados em tabelas e gráficos usando comandos como `table`, `sort`, `chart`, `stats` e `timechart`.
 
 
 
-### 3. **Manipulação de Dados (Data Manipulation)**
+# **Manipulação de Dados (Data Manipulation)**
 
-* 
 **Processamento**: Foca em como o Splunk analisa (*parsing*) dados brutos através de ficheiros de configuração (`props.conf`, `transforms.conf`, `inputs.conf`).
-
-
-* 
 **Correção de Eventos**: Explica como definir limites de eventos (*event boundaries*) para logs de múltiplas linhas usando stanzas como `BREAK_ONLY_BEFORE` ou `MUST_BREAK_AFTER`.
-
-
-* 
 **Mascaramento e Extração**: Demonstra como ocultar dados sensíveis (ex: números de cartões de crédito) com `SEDCMD` e como extrair campos personalizados com expressões regulares (Regex).
 
 
+# **Dashboards e Relatórios (Dashboards and Reports)**
 
-### 4. **Dashboards e Relatórios (Dashboards and Reports)**
-
-* 
 **Relatórios**: Ensina a guardar pesquisas frequentes como relatórios agendados para automatizar a monitorização e reduzir a carga no sistema.
-
-
-* 
 **Dashboards**: Mostra como agrupar visualizações (gráficos de colunas, linhas, etc.) num painel central para uma análise rápida da postura de segurança.
-
-
-* 
 **Alertas**: Explica a criação de alertas baseados em condições específicas (ex: tentativas de força bruta) para notificar os analistas em tempo real.
 
+# **Desafio Prático (Fixit)**
 
-
-### 5. **Desafio Prático (Fixit)**
-
-* 
 **Cenário de Desafio**: Um documento focado num exercício prático onde o utilizador deve corrigir problemas de parsing num app chamado "Fixit".
-
-
-* 
 **Aplicação**: Exige a aplicação de conhecimentos de Regex e edição de ficheiros `.conf` para separar eventos corretamente, extrair campos de utilizador e país, e realizar análises de segurança sobre os dados corrigidos.
   
 # 2- Detection Engineering
