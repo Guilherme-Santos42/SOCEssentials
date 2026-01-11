@@ -119,6 +119,39 @@ Ataques de Força Bruta: Múltiplas falhas de login em um curto período vindas 
   
 # 2- Detection Engineering
 
+# Engenharia de Deteção (Intro & Tactical)
+
+Conceito: É o processo contínuo de criar e operar análises de inteligência para identificar atividades maliciosas ou configurações incorretas.
+Deteção como Código (DaC): Aborda a escrita de deteções usando princípios de engenharia de software, como controlo de versão e automação (CI/CD), usando linguagens como Sigma e YARA.
+Tipos de Deteção: Incluem deteção baseada em configuração (erros de infraestrutura), modelagem (desvios de comportamento normal), indicadores (IOCs conhecidos) e comportamento de ameaças (TTPs de adversários).
+Tripwires: Uso de "armadilhas" como ficheiros ocultos ou honeypots para detetar intrusões através de acessos não autorizados que geram logs específicos (ex: Event ID 4663 no Windows).
+
+
+
+# Linguagem Sigma e Conversão
+
+O que é: Um formato de assinatura genérico e de código aberto para descrever eventos de log num formato estruturado (YAML), permitindo partilhar deteções entre diferentes ferramentas (SIEM/EDR).
+Componentes da Regra: Título, ID (UUID), logsource (origem dos dados), detection (identificadores e condições) e nível de severidade.
+Ferramentas de Conversão:
+Sigmac/Sigma-cli: Ferramentas de linha de comandos para converter regras Sigma em consultas específicas para Splunk, Elasticsearch, etc.
+Uncoder.io: Conversor online que traduz Sigma, listas de IOCs e outras sintaxes para diversas plataformas de SIEM e EDR.
+
+
+# Tecnologias de Resposta (EDR & SOAR)
+
+Aurora EDR: Um agente de endpoint para Windows que utiliza regras Sigma para detetar padrões de ameaças em tempo real através do Event Tracing for Windows (ETW), sem que os dados saiam da rede.
+SOAR (Orchestration, Automation, and Response):
+Função: Integra diferentes ferramentas de segurança em fluxos de trabalho (workflows) automatizados para reduzir a fadiga de alertas e acelerar a resposta a incidentes.
+Playbooks: Listas de verificação estruturadas e automatizadas para lidar com incidentes rotineiros, como análise de phishing ou correção de vulnerabilidades (CVEs).
+
+
+
+# Inteligência de Ameaças (Threat Intelligence)
+
+Tipos de Intel: Estratégica (decisões de negócio), Técnica (focada em IOCs), Táctica (TTPs de adversários) e Operacional (motivos do ataque).
+Produtores vs. Consumidores: Produtores criam a inteligência através da análise de dados; Consumidores utilizam essa inteligência para alimentar as suas defesas e regras de deteção.
+Aplicação Prática: Uso de IOCs para bloqueio preventivo em firewalls (IPs), gateways de e-mail (domínios) e DNS Sinkholes.
+
 # 3- Incident Response
 
 # 4- Threat Hunting
