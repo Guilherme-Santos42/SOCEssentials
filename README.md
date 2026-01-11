@@ -72,6 +72,13 @@ Ataques de Força Bruta: Múltiplas falhas de login em um curto período vindas 
 
 # 1.1 - ELK
 
+<h1>Consultas Avançadas no ELK:<br></h1> Este documento foca no uso avançado do Kibana para analisar grandes volumes de dados. Ele ensina a utilizar linguagens de consulta como KQL (simples e intuitiva) e Lucene (mais poderosa e complexa). Aborda técnicas como o uso de caracteres especiais, wildcards (* e ?), consultas aninhadas em JSON, pesquisas por intervalos, buscas difusas (fuzzy) para capturar erros de digitação e expressões regulares (regex).
+
+<h1>Regras de Alerta Personalizadas no Wazuh:<br></h1> O guia explica como expandir a deteção de ameaças no Wazuh através de regras customizadas. O processo baseia-se em dois pilares: Decodificadores, que utilizam regex para extrair dados relevantes dos logs, e Regras, que definem condições específicas para gerar alertas. O documento detalha como testar estas regras e como a ordem de processamento (relação pai-filho) é crucial para a eficácia do sistema.
+
+<h1>Logstash: Unidade de Processamento de Dados:<br></h1> Foca no Logstash como o motor central de coleta e transformação de dados da stack ELK. O documento descreve a estrutura fundamental de um ficheiro de configuração do Logstash, dividida em três partes: Input (receção de dados de várias fontes), Filter (normalização e enriquecimento de dados através de plugins como Grok e Mutate) e Output (envio dos dados processados para destinos como o Elasticsearch).
+
+<h1>Slingshot (Investigação de Logs):<br></h1> Caso prático de investigação de um ataque real a um servidor web. Utilizando o Kibana, o analista deve reconstruir os passos do invasor, identificando o seu IP, as ferramentas de digitalização utilizadas (como Nmap e Gobuster), o método de acesso (brute-force com Hydra), a exfiltração de base de dados e a inserção de códigos maliciosos.
 # 1.2 - SPLUNK 
 
 # 2- Detection Engineering
