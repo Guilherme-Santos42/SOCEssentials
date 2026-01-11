@@ -186,4 +186,57 @@ Resultados: Criação de relatórios técnicos e executivos. No caso SSF, os IoC
 
 # 4- Threat Hunting
 
+Conceitos Fundamentais de Threat Hunting
+Proatividade: Diferente da Resposta a Incidentes (reativa), o Threat Hunting é uma busca ativa e constante por ameaças que já podem estar na rede sem terem sido detectadas.
+Objetivos: Reduzir o "Dwell Time" (tempo de permanência do invasor), descobrir vulnerabilidades não corrigidas e melhorar os mecanismos de deteção automática da organização.
+Metodologia: Baseia-se em inteligência de ameaças (Threat Intel) e na criação de hipóteses para investigar comportamentos anómalos em logs de rede e de sistema.
+
+# Cenários de Ataque e Investigação (Casos Práticos)
+Os documentos detalham "quartos" de treino (TryHackMe) que simulam as fases de um ataque:
+Foothold (Ponto de Apoio): Investigação de acessos iniciais, como Brute Force via SSH, exploração de vulnerabilidades web (RCE em PHP) e e-mails de Phishing com anexos maliciosos (.zip, .lnk).
+Pivoting (Movimentação Lateral): Foca em como o atacante se move internamente. Inclui o uso de ferramentas como SharpHound para reconhecimento de Active Directory, abuso de privilégios (SeImpersonate) e técnicas de Pass-the-Hash ou WMI para saltar entre máquinas.
+Endgame (Ações nos Objetivos): A fase final do ataque, onde se caça atividades de Keylogging, exfiltração de dados (via protocolos alternativos como ICMP ou DNS) e o impacto final, como a destruição de backups ou execução de ransomware.
+
+# Casos Específicos de Estudo
+Hunt Me I (Payment Collectors): Um diretor financeiro é alvo de phishing. A investigação rastreia o download de um arquivo malicioso, a execução de um shell reverso via PowerShell e a exfiltração de planilhas financeiras através de consultas DNS (nslookup).
+Hunt Me II (Typo Squatters): Um programador descarrega software malicioso de um site com nome quase idêntico ao real (7zipp[.]org). O ataque evolui para roubo de credenciais via dumping de memória (LSASS), escalada de privilégios e, finalmente, a cifragem de ficheiros (ransomware).
+
 # 5- Threat Emulation
+
+# Fundamentos e Metodologia
+
+Intro to Threat Emulation: Define a emulação como uma prática guiada por inteligência para imitar ataques reais em ambiente controlado, visando testar e melhorar defesas. Diferencia-se da simulação por ser uma imitação exata de um adversário específico em vez de padrões pré-definidos.
+Threat Modelling: Aborda a identificação sistemática de ameaças para reduzir a exposição ao risco. Apresenta frameworks como STRIDE (focado em tipos de ameaças como Spoofing e Tampering) , DREAD (para classificação de risco) e o uso de Árvores de Ataque para visualizar caminhos de exploração.
+
+# Ferramentas de Emulação
+
+Atomic Red Team: Um framework de testes "atómicos" (testes individuais e simples) mapeados diretamente para as técnicas do MITRE ATT&CK. Utiliza ficheiros YAML para configurar a execução de comandos que imitam comportamentos maliciosos e scripts de limpeza para restaurar o sistema.
+CALDERA: Uma plataforma de código aberto para emulação de adversários de forma autónoma. Utiliza "Agentes" instalados em máquinas vítimas, "Habilidades" (implementações de TTPs) e "Operações" para executar cadeias de ataque completas. Também possui o plugin Response para automação de resposta a incidentes.
+
+# Exercícios de Purple Teaming
+
+Atomic Bird Goes Purple (#1 e #2): Documentos focados em exercícios práticos que combinam ataque (Red Team) e deteção (Blue Team). Os cenários incluem:
+Enumeração de sistemas e captura de dados.
+Manipulação de ficheiros partilhados e dumping de dados.
+Deteção de credenciais em texto limpo e criação de contas falsas (decoy).
+Uso de ferramentas como Sysmon e Aurora EDR para investigar artefactos e logs gerados pelos ataques.
+
+# 6- Malware Analysis
+
+# Fundamentos e Arquitetura
+x86 Architecture Overview: Explica a base do hardware, focando na arquitetura de Von Neumann (CPU, Memória, I/O). Detalha o papel dos registos (como EAX, EIP/RIP) na execução de instruções e a organização da memória em seções como Código, Dados, Heap e Stack.
+x86 Assembly Crash Course: Um curso intensivo sobre a linguagem de montagem (Assembly), essencial para ler binários compilados. Cobre opcodes, operandos e instruções comuns (MOV, LEA, NOP, saltos e condicionais).
+
+# Análise Estática (Sem Execução)
+Basic Static Analysis: Foca em examinar as propriedades do ficheiro sem o correr. Inclui a procura de strings (sequências de texto), cálculo de hashes (impressões digitais do ficheiro) e verificação do cabeçalho PE (Portable Executable)
+Dissecting PE Headers: Detalha a estrutura dos ficheiros executáveis do Windows (.exe e .dll). Ensina a ler cabeçalhos (DOS, NT, Section Headers) para identificar se o ficheiro está compactado ou que funções importa do sistema.
+Advanced Static Analysis: Introduz a engenharia reversa propriamente dita. Utiliza ferramentas como o Ghidra para descompilar o código binário em C legível, permitindo entender a lógica interna, loops e chamadas à API do Windows sem executar o malware.
+
+# Análise Dinâmica (Com Execução)
+Basic Dynamic Analysis: Ensina a observar o comportamento do malware enquanto ele corre num ambiente isolado (Sandbox/VM). Utiliza ferramentas como o ProcMon (monitorizar processos), Process Explorer e Regshot (ver alterações no registo).
+Dynamic Analysis: Debugging: Foca no uso de debuggers (como x64dbg) para controlar a execução passo a passo. Permite alterar registos em tempo real e fazer "patching" (modificar o código) para saltar mecanismos de defesa do malware.
+
+# Técnicas Avançadas e Casos Específicos
+Anti-Reverse Engineering: Explora como os autores de malware tentam evitar a análise. As técnicas incluem a deteção de máquinas virtuais (Anti-VM), deteção de debuggers (Anti-Debugging) e o uso de Packers para ofuscar o código.
+MalDoc: Static Analysis: Foca-se especificamente em documentos maliciosos (PDFs e ficheiros do Office). Explica como macros e scripts (JavaScript/VBScript) são usados para descarregar payloads e como analisar a estrutura interna destes documentos.
+MalBuster: Um guia prático que consolida os conhecimentos de análise estática e cabeçalhos PE para investigar amostras desconhecidas e extrair indicadores de compromisso (IOCs
