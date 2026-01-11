@@ -3,7 +3,7 @@ some summaries of SOC studies
 
 # 1- LOGS
 
-1. Fundamentos e Importância dos Logs
+Fundamentos e Importância dos Logs
 Os logs são registros históricos de eventos em sistemas, aplicações e redes. Eles funcionam como a "caixa-preta" de um sistema digital, permitindo:
 
 
@@ -18,8 +18,8 @@ Resolução de problemas (Troubleshooting) técnicos e operacionais.
 
 Conformidade (Compliance) com leis e regulamentos (como GDPR, PCI DSS e HIPAA).
 
+Categorias e Formatos de Logs
 
-2. Categorias e Formatos de Logs
 Os logs podem ser originados de diversas fontes, incluindo dispositivos físicos (controlo de acesso), virtuais (roteadores, firewalls) e aplicações.
 
 
@@ -40,8 +40,8 @@ Semiestruturados: Combinam partes fixas com texto livre (Syslog, Windows Event L
 Não Estruturados: Texto livre, como os logs padrão do Apache e Nginx.
 
 
+Planejamento e Operações de Log
 
-3. Planejamento e Operações de Log
 A configuração de logs deve ser estratégica para evitar o "ruído" (excesso de dados inúteis).
 
 
@@ -61,8 +61,8 @@ Retenção: Definida por categorias: Hot (acesso imediato, 3-6 meses), Warm (6 m
 
 Ferramentas de automação: O rsyslog é usado para centralização e o logrotate para rotacionar, comprimir e deletar logs antigos.
 
+Metodologia de Análise e Ferramentas
 
-4. Metodologia de Análise e Ferramentas
 A análise transforma dados brutos em informações acionáveis através de processos como Normalização (padronização), Enriquecimento (adição de contexto) e Correlação (ligação entre eventos distintos).
 
 
@@ -88,7 +88,7 @@ Padronização de Ameaças: Regras Sigma (para SIEM) e Yara (busca de padrões t
 
 CyberChef: Conhecido como a "faca suíça" para decodificar e filtrar dados de logs.
 
-5. Identificação de Ataques Comuns
+Identificação de Ataques Comuns
 Os documentos detalham assinaturas de ataques que podem ser encontradas nos logs:
 
 
